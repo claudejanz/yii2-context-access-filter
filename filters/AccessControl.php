@@ -25,5 +25,5 @@ namespace claudejanz\contextAccessFilter\filters;
  * @author Claude Janz <claude.janz@gmail.com>
  */
 class AccessControl extends \yii\filters\AccessControl{
-     public $ruleConfig = ['class' => 'app\controllers\filters\AccessRule'];
+     public $ruleConfig = ['class' => 'claudejanz\contextAccessFilter\filters\AccessRule'];
 }
