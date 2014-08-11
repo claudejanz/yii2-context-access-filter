@@ -27,7 +27,7 @@ use yii\rbac\Rule;
  */
 class OwnRule extends Rule{
     public $name = 'isAuthor';
-    public $param = 'create_id';
+    public $param = 'created_by';
     public function execute($user, $item, $params) {
         return isset($params['model']) ? $params['model']->{$this->param} == $user : false;
     }
