@@ -25,7 +25,7 @@ install rbac as in doc [Role based access control (RBAC) ](http://www.yiiframewo
 
 ## Usage
 
-#in RbacController
+###in RbacController
 
 ```php
 class RbacController extends Controller {
@@ -112,7 +112,7 @@ class RbacController extends Controller {
 }
 ```
 
-#in controller
+###in controller
 
 ```php
     public $model;
