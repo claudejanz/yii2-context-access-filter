@@ -4,6 +4,7 @@ namespace claudejanz\contextAccessFilter\filters;
 
 use Yii;
 use yii\base\ActionFilter;
+use yii\base\InvalidConfigException;
 use yii\web\NotFoundHttpException;
 
 /*
@@ -34,9 +35,17 @@ class ContextFilter extends ActionFilter {
     public $target;
 
     public function beforeAction($action) {
+        // controlle params
+        if(!isset($this->modelName))throw new InvalidConfigException(Yii::t('app','the "modelName" must be set for "{class}".',['class'=>__CLASS__]));
+        if(!isset($this->target))throw new InvalidConfigException(Yii::t('app','the "target" must be set for "{class}".',['class'=>__CLASS__]));
+        
+        //get request params
         $queryParams = Yii::$app->getRequest()->getQueryParams();
+        
+        // load model
         $model = call_user_func([$this->modelName, 'findOne'], $queryParams[join(',', call_user_func([$this->modelName, 'primaryKey']))]);
         if ($model !== null) {
+            // return model to controller
             $action->controller->{$this->target} = $model;
             return true;
         } else {

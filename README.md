@@ -152,7 +152,7 @@ class RbacController extends Controller {
                 ],
             ],
             'verbs' => [
-                'class' => \yii\filters\VerbFilterVerbFilter::className(),
+                'class' => \yii\filters\VerbFilter::className(),
                 'actions' => [
                     'delete' => ['post'],
                 ],
