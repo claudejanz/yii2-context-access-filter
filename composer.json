@@ -1,0 +1,20 @@
+{
+    "name": "claudejanz/yii2-context-access-filter",
+    "description": "This shows how to implement Context and Access Filter for Yii2 framework",
+    "authors": [
+        {
+            "name": "Claude Janz",
+            "email": "claudejanz@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "claudejanz\\contextAccessFilter\\": ""
+        }
+    },
+    "require": {
+        "yiisoft/yii2": "*"
+    }
+    
+    
+}
