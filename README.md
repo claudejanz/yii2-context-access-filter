@@ -115,7 +115,6 @@ class RbacController extends Controller {
 ###in controller
 
 ```php
-    public $model;
     public function behaviors() {
         return [
             'context' =>[
