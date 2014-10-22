@@ -60,7 +60,7 @@ class RbacController extends Controller {
         $auth->add($updateOwn);
 
         // make "updateOwn" child from "update"
-        $auth->addChild($updateOwn,$update);
+        $auth->addChild($update,$updateOwn);
         
         // add "delete" permission
         $delete = $auth->createPermission('delete');
@@ -74,7 +74,7 @@ class RbacController extends Controller {
         $auth->add($deleteOwn);
 
         // make "deleteOwn" child from "delete"
-        $auth->addChild($deleteOwn,$delete);
+        $auth->addChild($delete,$deleteOwn);
         
         
 
@@ -136,17 +136,13 @@ class RbacController extends Controller {
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['update'],
+                        'actions' => ['updateOwn'],
                         'roles' => ['update'],
-                        // params to transmit to OwnRule
-                        'params'=>['model'=>&$this->model]
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['delete'],
+                        'actions' => ['deleteOwn'],
                         'roles' => ['delete'],
-                        // params to transmit to OwnRule
-                        'params'=>['model'=>&$this->model]
                     ],
                 ],
             ],

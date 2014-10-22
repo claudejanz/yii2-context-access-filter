@@ -19,6 +19,8 @@
 
 namespace claudejanz\contextAccessFilter\filters;
 
+use Yii;
+
 /**
  * Description of AccessRule
  *
@@ -26,14 +28,14 @@ namespace claudejanz\contextAccessFilter\filters;
  */
 class AccessRule extends \yii\filters\AccessRule {
 
-    public $params;
+    private $params;
 
     protected function matchRole($user) {
         if (parent::matchRole($user))
             return true;
-        
-        
-        if (isset($this->params)) {
+
+        if (isset(Yii::$app->controller->model)) {
+            $this->params = ['model' => Yii::$app->controller->model];
             foreach ($this->roles as $role) {
                 if ($user->can($role, $this->params)) {
                     return true;
@@ -42,4 +44,5 @@ class AccessRule extends \yii\filters\AccessRule {
         }
         return false;
     }
+
 }
