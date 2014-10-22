@@ -32,11 +32,12 @@ use yii\web\NotFoundHttpException;
 class ContextFilter extends ActionFilter {
 
     public $modelName;
-    private $_model;
+    public $target;
 
     public function beforeAction($action) {
         // controlle params
         if(!isset($this->modelName))throw new InvalidConfigException(Yii::t('app','the "modelName" must be set for "{class}".',['class'=>__CLASS__]));
+        if(!isset($this->target))throw new InvalidConfigException(Yii::t('app','the "target" must be set for "{class}".',['class'=>__CLASS__]));
         
         //get request params
         $queryParams = Yii::$app->getRequest()->getQueryParams();
@@ -45,13 +46,10 @@ class ContextFilter extends ActionFilter {
         $model = call_user_func([$this->modelName, 'findOne'], $queryParams[join(',', call_user_func([$this->modelName, 'primaryKey']))]);
         if ($model !== null) {
             // return model to controller
-            $this->_model = $model;
+            $action->controller->{$this->target} = $model;
             return true;
         } else {
             throw new NotFoundHttpException(Yii::t('app','The requested page does not exists.'));
         }
-    }
-    public function getModel(){
-        return $this->_model;
     }
 }
