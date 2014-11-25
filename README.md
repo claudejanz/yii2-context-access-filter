@@ -1,5 +1,8 @@
 Context and Access Filters for yii2 framework
---------------------------------------
+=============================================
+
+[![Latest Stable Version](https://poser.pugx.org/claudejanz/yii2-context-access-filter/v/stable.svg)](https://packagist.org/packages/claudejanz/yii2-context-access-filter) [![Total Downloads](https://poser.pugx.org/claudejanz/yii2-context-access-filter/downloads.svg)](https://packagist.org/packages/claudejanz/yii2-context-access-filter) [![Latest Unstable Version](https://poser.pugx.org/claudejanz/yii2-context-access-filter/v/unstable.svg)](https://packagist.org/packages/claudejanz/yii2-context-access-filter) [![License](https://poser.pugx.org/claudejanz/yii2-context-access-filter/license.svg)](https://packagist.org/packages/claudejanz/yii2-context-access-filter)
+
 
 This shows how to implement Context and Access Filter for Yii2 framework
 
