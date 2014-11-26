@@ -1,6 +1,7 @@
 {
     "name": "claudejanz/yii2-context-access-filter",
     "description": "This shows how to implement Context and Access Filter for Yii2 framework",
+    "license": "BSD-4-Clause",
     "authors": [
         {
             "name": "Claude Janz",
