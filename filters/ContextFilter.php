@@ -40,9 +40,8 @@ class ContextFilter extends ActionFilter {
         
         //get request params
         $queryParams = Yii::$app->getRequest()->getQueryParams();
-        
         // load model
-        $model = call_user_func([$this->modelName, 'findOne'], $queryParams[join(',', call_user_func([$this->modelName, 'primaryKey']))]);
+        $model = call_user_func([$this->modelName, 'findOne'], $queryParams['id']);
         if ($model !== null) {
             // return model to controller
             $this->_model = $model;
