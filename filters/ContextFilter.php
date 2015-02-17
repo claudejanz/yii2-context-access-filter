@@ -47,7 +47,9 @@ class ContextFilter extends ActionFilter {
             $this->_model = $model;
             return true;
         } else {
-            throw new NotFoundHttpException(Yii::t('app','The requested page does not exists.'));
+            $arr = preg_split('@\\\\@', $this->modelName ,-1, PREG_SPLIT_NO_EMPTY);
+            $modelName = end($arr);
+            throw new NotFoundHttpException(Yii::t('app','The requested {modelName} does not exists.',['modelName'=>$modelName]));
         }
     }
     public function getModel(){
