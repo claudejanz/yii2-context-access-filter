@@ -36,7 +36,7 @@ class ContextFilter extends ActionFilter {
 
     public function beforeAction($action) {
         // controlle params
-        if(!isset($this->modelName))throw new InvalidConfigException(Yii::t('app','the "modelName" must be set for "{class}".',['class'=>__CLASS__]));
+        if(!isset($this->modelName))throw new InvalidConfigException(Yii::t('claudejanz','the "{name}" must be set for "{class}".',['name'=>'modelName','class'=>__CLASS__]));
         
         //get request params
         $queryParams = Yii::$app->getRequest()->getQueryParams();
@@ -50,7 +50,7 @@ class ContextFilter extends ActionFilter {
         } else {
             $arr = preg_split('@\\\\@', $this->modelName ,-1, PREG_SPLIT_NO_EMPTY);
             $modelName = end($arr);
-            throw new NotFoundHttpException(Yii::t('app','The requested {modelName} does not exists.',['modelName'=>$modelName]));
+            throw new NotFoundHttpException(Yii::t('claudejanz','The requested {modelName} does not exists.',['modelName'=>$modelName]));
         }
     }
     public function getModel(){
