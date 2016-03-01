@@ -24,7 +24,7 @@ or add
 
 to the ```require``` section of your `composer.json` file.
 
-install rbac as in doc [Role based access control (RBAC) ](http://www.yiiframework.com/doc-2.0/guide-authorization.html#role-based-access-control-rbac)
+install rbac as in doc [Role based access control (RBAC) ](http://www.yiiframework.com/doc-2.0/guide-security-authorization.html#rbac)
 
 ## Usage
 
@@ -125,8 +125,7 @@ class RbacController extends Controller {
                 'only' => ['update','delete'],
                 // model to load
                 'modelName' => Vin::className(),
-                // target in controller if found
-                'target'=>'model',
+                
             ],
             'access' => [
                 'class' => \claudejanz\contextAccessFilter\filters\AccessControl::className(),
