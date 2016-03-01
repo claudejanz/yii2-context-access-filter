@@ -139,12 +139,12 @@ class RbacController extends Controller {
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['updateOwn'],
+                        'actions' => ['update'],
                         'roles' => ['update'],
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['deleteOwn'],
+                        'actions' => ['delete'],
                         'roles' => ['delete'],
                     ],
                 ],
