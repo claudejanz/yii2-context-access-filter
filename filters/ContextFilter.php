@@ -33,6 +33,7 @@ class ContextFilter extends ActionFilter {
 
     public $modelName;
     private $_model;
+    public $field = 'id';
 
     public function beforeAction($action) {
         // controlle params
@@ -41,7 +42,7 @@ class ContextFilter extends ActionFilter {
         //get request params
         $queryParams = Yii::$app->getRequest()->getQueryParams();
         // load model
-        $model = call_user_func([$this->modelName, 'findOne'], $queryParams['id']);
+        $model = call_user_func([$this->modelName, 'findOne'], $queryParams[$this->field]);
         
         if ($model !== null) {
             // return model to controller
