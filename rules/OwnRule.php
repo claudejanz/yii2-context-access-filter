@@ -29,7 +29,6 @@ class OwnRule extends Rule{
     public $name = 'isAuthor';
     public $param = 'created_by';
     public function execute($user, $item, $params) {
-        
-        return isset($params['model']) ? $params['model']->{$this->param} == $user : false;
+        return isset($params['model']) ? ($params['model']->{$this->param} == $user && $user) : false;
     }
 }
