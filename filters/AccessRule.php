@@ -31,8 +31,6 @@ class AccessRule extends \yii\filters\AccessRule {
     private $params;
 
     protected function matchRole($user) {
-        if (parent::matchRole($user))
-            return true;
         if (isset(Yii::$app->controller->model)) {
             $this->params = ['model' => Yii::$app->controller->model];
             foreach ($this->roles as $role) {
@@ -41,6 +39,8 @@ class AccessRule extends \yii\filters\AccessRule {
                 }
             }
         }
+        if (parent::matchRole($user))
+            return true;
         return false;
     }
 
